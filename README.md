@@ -4,6 +4,8 @@ How to use Core MIDI's C callbacks in Swift via an Objective-C trampoline.
 
 Swift does not support C function pointers.
 
+I didn't include an Bonjour code here, so use the Audio MIDI Setup utility to connect to a network session.
+
 
 ## Blog post for this example.
 
@@ -12,7 +14,8 @@ Swift does not support C function pointers.
 
 ## Bugs
 
-### Status
+Don't see any. Do you?'
+
 
 ### Buy my kitty Giacomo some cat food
 
