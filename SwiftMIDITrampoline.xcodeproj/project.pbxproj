@@ -13,6 +13,8 @@
 		B064E7C21B1F268100AA3164 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B064E7C11B1F268100AA3164 /* Images.xcassets */; };
 		B064E7C51B1F268100AA3164 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B064E7C31B1F268100AA3164 /* LaunchScreen.xib */; };
 		B064E7D11B1F268100AA3164 /* SwiftMIDITrampolineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064E7D01B1F268100AA3164 /* SwiftMIDITrampolineTests.swift */; };
+		B064E7DC1B1F278C00AA3164 /* MIDICallbacks.m in Sources */ = {isa = PBXBuildFile; fileRef = B064E7DB1B1F278C00AA3164 /* MIDICallbacks.m */; };
+		B064E7DF1B1F293600AA3164 /* SwiftMIDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064E7DE1B1F293600AA3164 /* SwiftMIDI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,11 @@
 		B064E7CA1B1F268100AA3164 /* SwiftMIDITrampolineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftMIDITrampolineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B064E7CF1B1F268100AA3164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B064E7D01B1F268100AA3164 /* SwiftMIDITrampolineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMIDITrampolineTests.swift; sourceTree = "<group>"; };
+		B064E7DA1B1F278C00AA3164 /* SwiftMIDITrampoline-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftMIDITrampoline-Bridging-Header.h"; sourceTree = "<group>"; };
+		B064E7DB1B1F278C00AA3164 /* MIDICallbacks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDICallbacks.m; sourceTree = "<group>"; };
+		B064E7DD1B1F27EC00AA3164 /* MIDICallbacks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDICallbacks.h; sourceTree = "<group>"; };
+		B064E7DE1B1F293600AA3164 /* SwiftMIDI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMIDI.swift; sourceTree = "<group>"; };
+		B064E7E01B1F363800AA3164 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +66,7 @@
 		B064E7AC1B1F268100AA3164 = {
 			isa = PBXGroup;
 			children = (
+				B064E7E01B1F363800AA3164 /* README.md */,
 				B064E7B71B1F268100AA3164 /* SwiftMIDITrampoline */,
 				B064E7CD1B1F268100AA3164 /* SwiftMIDITrampolineTests */,
 				B064E7B61B1F268100AA3164 /* Products */,
@@ -83,6 +91,10 @@
 				B064E7C11B1F268100AA3164 /* Images.xcassets */,
 				B064E7C31B1F268100AA3164 /* LaunchScreen.xib */,
 				B064E7B81B1F268100AA3164 /* Supporting Files */,
+				B064E7DB1B1F278C00AA3164 /* MIDICallbacks.m */,
+				B064E7DD1B1F27EC00AA3164 /* MIDICallbacks.h */,
+				B064E7DA1B1F278C00AA3164 /* SwiftMIDITrampoline-Bridging-Header.h */,
+				B064E7DE1B1F293600AA3164 /* SwiftMIDI.swift */,
 			);
 			path = SwiftMIDITrampoline;
 			sourceTree = "<group>";
@@ -212,7 +224,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B064E7DC1B1F278C00AA3164 /* MIDICallbacks.m in Sources */,
 				B064E7BD1B1F268100AA3164 /* ViewController.swift in Sources */,
+				B064E7DF1B1F293600AA3164 /* SwiftMIDI.swift in Sources */,
 				B064E7BB1B1F268100AA3164 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,9 +356,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftMIDITrampoline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftMIDITrampoline/SwiftMIDITrampoline-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -352,9 +369,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftMIDITrampoline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftMIDITrampoline/SwiftMIDITrampoline-Bridging-Header.h";
 			};
 			name = Release;
 		};
