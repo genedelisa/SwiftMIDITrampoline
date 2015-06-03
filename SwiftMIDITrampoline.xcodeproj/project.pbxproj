@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B064E7BB1B1F268100AA3164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064E7BA1B1F268100AA3164 /* AppDelegate.swift */; };
+		B064E7BD1B1F268100AA3164 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064E7BC1B1F268100AA3164 /* ViewController.swift */; };
+		B064E7C01B1F268100AA3164 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B064E7BE1B1F268100AA3164 /* Main.storyboard */; };
+		B064E7C21B1F268100AA3164 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B064E7C11B1F268100AA3164 /* Images.xcassets */; };
+		B064E7C51B1F268100AA3164 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B064E7C31B1F268100AA3164 /* LaunchScreen.xib */; };
+		B064E7D11B1F268100AA3164 /* SwiftMIDITrampolineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064E7D01B1F268100AA3164 /* SwiftMIDITrampolineTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B064E7CB1B1F268100AA3164 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B064E7AD1B1F268100AA3164 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B064E7B41B1F268100AA3164;
+			remoteInfo = SwiftMIDITrampoline;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B064E7B51B1F268100AA3164 /* SwiftMIDITrampoline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftMIDITrampoline.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B064E7B91B1F268100AA3164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B064E7BA1B1F268100AA3164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B064E7BC1B1F268100AA3164 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B064E7BF1B1F268100AA3164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B064E7C11B1F268100AA3164 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B064E7C41B1F268100AA3164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B064E7CA1B1F268100AA3164 /* SwiftMIDITrampolineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftMIDITrampolineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B064E7CF1B1F268100AA3164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B064E7D01B1F268100AA3164 /* SwiftMIDITrampolineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMIDITrampolineTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B064E7B21B1F268100AA3164 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B064E7C71B1F268100AA3164 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B064E7AC1B1F268100AA3164 = {
+			isa = PBXGroup;
+			children = (
+				B064E7B71B1F268100AA3164 /* SwiftMIDITrampoline */,
+				B064E7CD1B1F268100AA3164 /* SwiftMIDITrampolineTests */,
+				B064E7B61B1F268100AA3164 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B064E7B61B1F268100AA3164 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B064E7B51B1F268100AA3164 /* SwiftMIDITrampoline.app */,
+				B064E7CA1B1F268100AA3164 /* SwiftMIDITrampolineTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B064E7B71B1F268100AA3164 /* SwiftMIDITrampoline */ = {
+			isa = PBXGroup;
+			children = (
+				B064E7BA1B1F268100AA3164 /* AppDelegate.swift */,
+				B064E7BC1B1F268100AA3164 /* ViewController.swift */,
+				B064E7BE1B1F268100AA3164 /* Main.storyboard */,
+				B064E7C11B1F268100AA3164 /* Images.xcassets */,
+				B064E7C31B1F268100AA3164 /* LaunchScreen.xib */,
+				B064E7B81B1F268100AA3164 /* Supporting Files */,
+			);
+			path = SwiftMIDITrampoline;
+			sourceTree = "<group>";
+		};
+		B064E7B81B1F268100AA3164 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B064E7B91B1F268100AA3164 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B064E7CD1B1F268100AA3164 /* SwiftMIDITrampolineTests */ = {
+			isa = PBXGroup;
+			children = (
+				B064E7D01B1F268100AA3164 /* SwiftMIDITrampolineTests.swift */,
+				B064E7CE1B1F268100AA3164 /* Supporting Files */,
+			);
+			path = SwiftMIDITrampolineTests;
+			sourceTree = "<group>";
+		};
+		B064E7CE1B1F268100AA3164 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B064E7CF1B1F268100AA3164 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B064E7B41B1F268100AA3164 /* SwiftMIDITrampoline */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B064E7D41B1F268100AA3164 /* Build configuration list for PBXNativeTarget "SwiftMIDITrampoline" */;
+			buildPhases = (
+				B064E7B11B1F268100AA3164 /* Sources */,
+				B064E7B21B1F268100AA3164 /* Frameworks */,
+				B064E7B31B1F268100AA3164 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftMIDITrampoline;
+			productName = SwiftMIDITrampoline;
+			productReference = B064E7B51B1F268100AA3164 /* SwiftMIDITrampoline.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B064E7C91B1F268100AA3164 /* SwiftMIDITrampolineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B064E7D71B1F268100AA3164 /* Build configuration list for PBXNativeTarget "SwiftMIDITrampolineTests" */;
+			buildPhases = (
+				B064E7C61B1F268100AA3164 /* Sources */,
+				B064E7C71B1F268100AA3164 /* Frameworks */,
+				B064E7C81B1F268100AA3164 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B064E7CC1B1F268100AA3164 /* PBXTargetDependency */,
+			);
+			name = SwiftMIDITrampolineTests;
+			productName = SwiftMIDITrampolineTests;
+			productReference = B064E7CA1B1F268100AA3164 /* SwiftMIDITrampolineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B064E7AD1B1F268100AA3164 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Gene De Lisa";
+				TargetAttributes = {
+					B064E7B41B1F268100AA3164 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					B064E7C91B1F268100AA3164 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = B064E7B41B1F268100AA3164;
+					};
+				};
+			};
+			buildConfigurationList = B064E7B01B1F268100AA3164 /* Build configuration list for PBXProject "SwiftMIDITrampoline" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B064E7AC1B1F268100AA3164;
+			productRefGroup = B064E7B61B1F268100AA3164 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B064E7B41B1F268100AA3164 /* SwiftMIDITrampoline */,
+				B064E7C91B1F268100AA3164 /* SwiftMIDITrampolineTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B064E7B31B1F268100AA3164 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B064E7C01B1F268100AA3164 /* Main.storyboard in Resources */,
+				B064E7C51B1F268100AA3164 /* LaunchScreen.xib in Resources */,
+				B064E7C21B1F268100AA3164 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B064E7C81B1F268100AA3164 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B064E7B11B1F268100AA3164 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B064E7BD1B1F268100AA3164 /* ViewController.swift in Sources */,
+				B064E7BB1B1F268100AA3164 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B064E7C61B1F268100AA3164 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B064E7D11B1F268100AA3164 /* SwiftMIDITrampolineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B064E7CC1B1F268100AA3164 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B064E7B41B1F268100AA3164 /* SwiftMIDITrampoline */;
+			targetProxy = B064E7CB1B1F268100AA3164 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B064E7BE1B1F268100AA3164 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B064E7BF1B1F268100AA3164 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B064E7C31B1F268100AA3164 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B064E7C41B1F268100AA3164 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B064E7D21B1F268100AA3164 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B064E7D31B1F268100AA3164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B064E7D51B1F268100AA3164 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SwiftMIDITrampoline/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B064E7D61B1F268100AA3164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SwiftMIDITrampoline/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B064E7D81B1F268100AA3164 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwiftMIDITrampolineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftMIDITrampoline.app/SwiftMIDITrampoline";
+			};
+			name = Debug;
+		};
+		B064E7D91B1F268100AA3164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwiftMIDITrampolineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftMIDITrampoline.app/SwiftMIDITrampoline";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B064E7B01B1F268100AA3164 /* Build configuration list for PBXProject "SwiftMIDITrampoline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B064E7D21B1F268100AA3164 /* Debug */,
+				B064E7D31B1F268100AA3164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B064E7D41B1F268100AA3164 /* Build configuration list for PBXNativeTarget "SwiftMIDITrampoline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B064E7D51B1F268100AA3164 /* Debug */,
+				B064E7D61B1F268100AA3164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B064E7D71B1F268100AA3164 /* Build configuration list for PBXNativeTarget "SwiftMIDITrampolineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B064E7D81B1F268100AA3164 /* Debug */,
+				B064E7D91B1F268100AA3164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B064E7AD1B1F268100AA3164 /* Project object */;
+}
