@@ -11,6 +11,12 @@ I didn't include an Bonjour code here, so use the Audio MIDI Setup utility to co
 
 [Blog post](http://www.rockhoppertech.com/blog/swift-midi-trampoline/)
 
+## Update
+
+For fun, I just added a virtual destination and a MusicSequence connected to it. The virtual destination uses the same read proc trampoline as the regular input port. In this example, the textView will echo events on the input port. The MusicSequence will echo to stdout and play the notes at the same time.
+
+You will need to download a SoundFont. I use the one from MuseCore.
+
 
 ## Bugs
 

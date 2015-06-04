@@ -13,15 +13,11 @@
 #define SwiftMIDITrampoline_MIDICallbacks_h
 
 
-OSStatus MIDIClientCreate_withBlock(CFStringRef name, MIDIClientRef *outClient, void (^notifyRefCon)(const MIDINotification *message));
+OSStatus MIDIClientCreate_withBlock(MIDIClientRef *outClient, CFStringRef name, void (^notifyRefCon)(const MIDINotification *message));
 
-OSStatus MIDIInputPortCreate_withBlock(CFStringRef name, MIDIClientRef midiClient, MIDIPortRef* outport, void (^readRefCon)(const MIDITimeStamp ts, const UInt8 *datum, const UInt16 len));
-//
-//OSStatus MIDIInputPortCreate_withBlock(CFStringRef name, MIDIClientRef midiClient, MIDIPortRef* outport, void (^notifyRefCon)(const MIDIPacketList *packetList, const void *srcConnRefCon));
+OSStatus MIDIInputPortCreate_withBlock(MIDIClientRef midiClient, CFStringRef name, MIDIPortRef* outport, void (^readRefCon)(const MIDITimeStamp ts, const UInt8 *datum, const UInt16 len));
 
+OSStatus MIDIDestinationCreate_withBlock(MIDIClientRef midiClient, CFStringRef name, MIDIEndpointRef* virtualDestination, void (^readRefCon)(const MIDITimeStamp ts, const UInt8 *data, const UInt16 len));
 
-
-//@interface MIDICallbacks : NSObject
-//@end
 
 #endif

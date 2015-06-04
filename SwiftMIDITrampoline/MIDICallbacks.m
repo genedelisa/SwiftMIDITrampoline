@@ -37,7 +37,7 @@ static void midiReadPacket_BlockTrampoline(const MIDIPacketList *pktlist, void *
 }
 
 
-OSStatus MIDIClientCreate_withBlock(CFStringRef name, MIDIClientRef *outClient, void (^notifyRefCon)(const MIDINotification *message))
+OSStatus MIDIClientCreate_withBlock(MIDIClientRef *outClient, CFStringRef name, void (^notifyRefCon)(const MIDINotification *message))
 {
     // Copy the block and store it in the refCon passed to MIDIClientCreate.
     // The midiNotify_BlockTrampoline function converts the provided refCon
@@ -47,7 +47,7 @@ OSStatus MIDIClientCreate_withBlock(CFStringRef name, MIDIClientRef *outClient, 
     return MIDIClientCreate(name, &midiNotify_BlockTrampoline, refCon, outClient);
 }
 
-OSStatus MIDIInputPortCreate_withBlock(CFStringRef name, MIDIClientRef midiClient, MIDIPortRef* outport, void (^readRefCon)(const MIDITimeStamp ts, const UInt8 *data, const UInt16 len)) {
+OSStatus MIDIInputPortCreate_withBlock(MIDIClientRef midiClient, CFStringRef name, MIDIPortRef* outport, void (^readRefCon)(const MIDITimeStamp ts, const UInt8 *data, const UInt16 len)) {
     
     // Copy the block and store it in the refCon passed to MIDIInputPortCreate.
     // The midiReadPacket_BlockTrampoline function converts the provided refCon
@@ -61,5 +61,29 @@ OSStatus MIDIInputPortCreate_withBlock(CFStringRef name, MIDIClientRef midiClien
                                outport);
 
 }
+
+/*
+ Apps need to have the audio key in their UIBackgroundModes in order to use CoreMIDI’s MIDISourceCreate and MIDIDestinationCreate functions.
+
+ In your Info.plist add the key "Required background modes", then set the value of item 0 to audio.
+ */
+
+OSStatus MIDIDestinationCreate_withBlock(MIDIClientRef midiClient, CFStringRef name, MIDIEndpointRef* virtualDestination, void (^readRefCon)(const MIDITimeStamp ts, const UInt8 *data, const UInt16 len)) {
+
+    void *refCon = (__bridge_retained void*)readRefCon;
+
+    return MIDIDestinationCreate(midiClient,
+                                 name,
+                                 &midiReadPacket_BlockTrampoline,
+                                 refCon,
+                                 virtualDestination);
+}
+
+
+
+
+
+
+
 
 
