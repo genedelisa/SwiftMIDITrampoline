@@ -17,9 +17,9 @@ import CoreAudio
 class SwiftMIDI {
     
     var midiClientRef = MIDIClientRef()
-
+    
     var destEndpointRef = MIDIEndpointRef()
-
+    
     var midiInputPortref = MIDIPortRef()
     
     typealias MIDIReader = (ts:MIDITimeStamp, data: UnsafePointer<UInt8>, length: UInt16) -> ()
@@ -43,12 +43,12 @@ class SwiftMIDI {
         self.midiReader = myPacketReadCallback
         
         CAShow(UnsafeMutablePointer<MusicSequence>(self.processingGraph))
-
+        
     }
-
+    
     
     func initMIDI(midiNotifier: MIDINotifier? = nil, reader: MIDIReader? = nil) {
-
+        
         if midiNotifier != nil {
             self.midiNotifier = midiNotifier
         } else {
@@ -84,7 +84,7 @@ class SwiftMIDI {
         } else {
             println("midi input port created \(midiInputPortref)")
         }
-
+        
         var destString:CFString = "Virtual Dest"
         status = MIDIDestinationCreate_withBlock(midiClientRef,
             destString,
@@ -96,11 +96,11 @@ class SwiftMIDI {
             println("midi virtual destination created \(destEndpointRef)")
         }
         
-
+        
         connect()
         
         playWithMusicPlayer()
-       
+        
     }
     
     func myNotifyCallback(message:UnsafePointer<MIDINotification>) -> Void {
@@ -154,29 +154,34 @@ class SwiftMIDI {
             println("huh?")
             break
         }
-
+        
     }
     
-    /* Since we have a virtual destination, we need to forard the events to the sampler.
+    /*
+    Since we have a virtual destination, we need to forard the events to the sampler.
     */
+    //TODO: implement the other forarding functions besides noteOn and noteOff.
+    
     func myPacketReadCallback(ts:MIDITimeStamp, data:UnsafePointer<UInt8>, len:UInt16) {
-        println("got a packet! ts:\(ts) status: \(data[0]) len \(len)")
-
+        
+        print("ts:\(ts) ")
+        
         let status = data[0]
         let rawStatus = data[0] & 0xF0 // without channel
         var channel = status & 0x0F
         
         switch rawStatus {
-
+            
         case 0x80:
             println("Note off. Channel \(channel) note \(data[1]) velocity \(data[2])")
             // forward to sampler
-            playNoteOff(UInt32(data[1]))
-
+            // Yes, bad API design. The read proc gives you the data as UInt8s, yet you need a UInt32 to play it with MusicDeviceMIDIEvent
+            playNoteOff(UInt32(channel), noteNum: UInt32(data[1]))
+            
         case 0x90:
             println("Note on. Channel \(channel) note \(data[1]) velocity \(data[2])")
             // forward to sampler
-            playNoteOn(UInt32(data[1]), velocity: UInt32(data[2]))
+            playNoteOn(UInt32(channel), noteNum:UInt32(data[1]), velocity: UInt32(data[2]))
             
         case 0xA0:
             println("Polyphonic Key Pressure (Aftertouch). Channel \(channel) note \(data[1]) pressure \(data[2])")
@@ -193,10 +198,7 @@ class SwiftMIDI {
         case 0xE0:
             println("Pitch Bend Change. Channel \(channel) lsb \(data[1]) msb \(data[2])")
             
-        case 0xFE:
-            println("active sensing")
-            
-        default: println("unhandled message \(status)")
+        default: println("Unhandled message \(status)")
         }
         
     }
@@ -208,6 +210,9 @@ class SwiftMIDI {
         println("net session enabled \(MIDINetworkSession.defaultSession().enabled)")
     }
     
+    /**
+    Connect our input port to all midi sources.
+    */
     func connect() {
         var status = OSStatus(noErr)
         var sourceCount = MIDIGetNumberOfSources()
@@ -221,16 +226,15 @@ class SwiftMIDI {
                 midiEndPoint,
                 nil)
             if status == OSStatus(noErr) {
-                println("yay! connected endpoint to midiInputPortref")
+                println("yay! connected source endpoint \(midiEndPoint) to midiInputPortref")
             } else {
                 println("oh crap!")
             }
-            
         }
     }
     
     // Testing virtual destination
-   
+    
     func playWithMusicPlayer() {
         var sequence = createMusicSequence()
         self.musicPlayer = createMusicPlayer(sequence)
@@ -250,7 +254,7 @@ class SwiftMIDI {
         if status != OSStatus(noErr) {
             println("setting sequence \(status)")
         }
-
+        
         status = MusicPlayerPreroll(musicPlayer)
         if status != OSStatus(noErr) {
             println("prerolling player \(status)")
@@ -294,16 +298,17 @@ class SwiftMIDI {
             }
         }
     }
-
-
+    
+    
     func createMusicSequence() -> MusicSequence {
-        // create the sequence
+        
         var musicSequence = MusicSequence()
         var status = NewMusicSequence(&musicSequence)
         if status != OSStatus(noErr) {
             println("\(__LINE__) bad status \(status) creating sequence")
         }
         
+        // just for fun, add a tempo track.
         var tempoTrack = MusicTrack()
         if MusicSequenceGetTempoTrack(musicSequence, &tempoTrack) != noErr {
             assert(tempoTrack != nil, "Cannot get tempo track")
@@ -361,7 +366,8 @@ class SwiftMIDI {
         
         // associate the AUGraph with the sequence.
         MusicSequenceSetAUGraph(musicSequence, self.processingGraph)
-
+        
+        // Let's see it
         CAShow(UnsafeMutablePointer<MusicSequence>(musicSequence))
         
         return musicSequence
@@ -440,27 +446,25 @@ class SwiftMIDI {
         
     }
     
-    func playNoteOn(noteNum:UInt32, velocity:UInt32)    {
-        // or with channel. channel is 0 in this example
-        var noteCommand = UInt32(0x90 | 0)
+    func playNoteOn(channel:UInt32, noteNum:UInt32, velocity:UInt32)    {
+        var noteCommand = UInt32(0x90 | channel)
         var status  = OSStatus(noErr)
         status = MusicDeviceMIDIEvent(self.samplerUnit, noteCommand, noteNum, velocity, 0)
         CheckError(status)
-        println("noteon status is \(status)")
     }
     
-    func playNoteOff(noteNum:UInt32)    {
-        var noteCommand = UInt32(0x80 | 0)
+    func playNoteOff(channel:UInt32, noteNum:UInt32)    {
+        var noteCommand = UInt32(0x80 | channel)
         var status : OSStatus = OSStatus(noErr)
         status = MusicDeviceMIDIEvent(self.samplerUnit, noteCommand, noteNum, 0, 0)
         CheckError(status)
-        println("noteoff status is \(status)")
     }
     
     
     /// loads preset into self.samplerUnit
     func loadSF2Preset(preset:UInt8)  {
         
+        // This is the MuseCore soundfont. Change it to the one you have.
         if let bankURL = NSBundle.mainBundle().URLForResource("GeneralUser GS MuseScore v1.442", withExtension: "sf2") {
             var instdata = AUSamplerInstrumentData(fileURL: Unmanaged.passUnretained(bankURL),
                 instrumentType: UInt8(kInstrumentType_DLSPreset),
@@ -506,62 +510,47 @@ class SwiftMIDI {
         case kAUGraphErr_InvalidAudioUnit:
             println( "Error:kAUGraphErr_InvalidAudioUnit \n")
             
-            // Core MIDI constants. Not using them here.
-            //    case kMIDIInvalidClient :
-            //        println( "kMIDIInvalidClient ")
-            //
-            //
-            //    case kMIDIInvalidPort :
-            //        println( "kMIDIInvalidPort ")
-            //
-            //
-            //    case kMIDIWrongEndpointType :
-            //        println( "kMIDIWrongEndpointType")
-            //
-            //
-            //    case kMIDINoConnection :
-            //        println( "kMIDINoConnection ")
-            //
-            //
-            //    case kMIDIUnknownEndpoint :
-            //        println( "kMIDIUnknownEndpoint ")
-            //
-            //
-            //    case kMIDIUnknownProperty :
-            //        println( "kMIDIUnknownProperty ")
-            //
-            //
-            //    case kMIDIWrongPropertyType :
-            //        println( "kMIDIWrongPropertyType ")
-            //
-            //
-            //    case kMIDINoCurrentSetup :
-            //        println( "kMIDINoCurrentSetup ")
-            //
-            //
-            //    case kMIDIMessageSendErr :
-            //        println( "kMIDIMessageSendErr ")
-            //
-            //
-            //    case kMIDIServerStartErr :
-            //        println( "kMIDIServerStartErr ")
-            //
-            //
-            //    case kMIDISetupFormatErr :
-            //        println( "kMIDISetupFormatErr ")
-            //
-            //
-            //    case kMIDIWrongThread :
-            //        println( "kMIDIWrongThread ")
-            //
-            //
-            //    case kMIDIObjectNotFound :
-            //        println( "kMIDIObjectNotFound ")
-            //
-            //
-            //    case kMIDIIDNotUnique :
-            //        println( "kMIDIIDNotUnique ")
+        case kMIDIInvalidClient :
+            println( "kMIDIInvalidClient ")
             
+        case kMIDIInvalidPort :
+            println( "kMIDIInvalidPort ")
+            
+        case kMIDIWrongEndpointType :
+            println( "kMIDIWrongEndpointType")
+            
+        case kMIDINoConnection :
+            println( "kMIDINoConnection ")
+            
+        case kMIDIUnknownEndpoint :
+            println( "kMIDIUnknownEndpoint ")
+            
+        case kMIDIUnknownProperty :
+            println( "kMIDIUnknownProperty ")
+            
+        case kMIDIWrongPropertyType :
+            println( "kMIDIWrongPropertyType ")
+            
+        case kMIDINoCurrentSetup :
+            println( "kMIDINoCurrentSetup ")
+            
+        case kMIDIMessageSendErr :
+            println( "kMIDIMessageSendErr ")
+            
+        case kMIDIServerStartErr :
+            println( "kMIDIServerStartErr ")
+            
+        case kMIDISetupFormatErr :
+            println( "kMIDISetupFormatErr ")
+            
+        case kMIDIWrongThread :
+            println( "kMIDIWrongThread ")
+            
+        case kMIDIObjectNotFound :
+            println( "kMIDIObjectNotFound ")
+            
+        case kMIDIIDNotUnique :
+            println( "kMIDIIDNotUnique ")
             
         case kAudioToolboxErr_InvalidSequenceType :
             println( " kAudioToolboxErr_InvalidSequenceType ")
@@ -642,6 +631,6 @@ class SwiftMIDI {
             println("huh?")
         }
     }
-
-
+    
+    
 }
