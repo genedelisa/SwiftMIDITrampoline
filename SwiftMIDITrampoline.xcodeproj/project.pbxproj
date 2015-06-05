@@ -67,6 +67,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B04BA93B1B21D13700B02DAF /* trampoline */ = {
+			isa = PBXGroup;
+			children = (
+				B064E7DA1B1F278C00AA3164 /* SwiftMIDITrampoline-Bridging-Header.h */,
+				B064E7DD1B1F27EC00AA3164 /* MIDICallbacks.h */,
+				B064E7DB1B1F278C00AA3164 /* MIDICallbacks.m */,
+			);
+			name = trampoline;
+			sourceTree = "<group>";
+		};
 		B064E7AC1B1F268100AA3164 = {
 			isa = PBXGroup;
 			children = (
@@ -97,9 +107,7 @@
 				B064E7C11B1F268100AA3164 /* Images.xcassets */,
 				B064E7C31B1F268100AA3164 /* LaunchScreen.xib */,
 				B064E7B81B1F268100AA3164 /* Supporting Files */,
-				B064E7DB1B1F278C00AA3164 /* MIDICallbacks.m */,
-				B064E7DD1B1F27EC00AA3164 /* MIDICallbacks.h */,
-				B064E7DA1B1F278C00AA3164 /* SwiftMIDITrampoline-Bridging-Header.h */,
+				B04BA93B1B21D13700B02DAF /* trampoline */,
 				B064E7DE1B1F293600AA3164 /* SwiftMIDI.swift */,
 			);
 			path = SwiftMIDITrampoline;
@@ -438,6 +446,7 @@
 				B064E7D61B1F268100AA3164 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B064E7D71B1F268100AA3164 /* Build configuration list for PBXNativeTarget "SwiftMIDITrampolineTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +455,7 @@
 				B064E7D91B1F268100AA3164 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
